@@ -3,75 +3,708 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIQ Token — FieldIQ</title>
-<meta name="description" content="Official information page for the FieldIQ token, FIQ, on Base Mainnet.">
-<link rel="icon" href="./FIQ_token_logo_256.png">
+<meta name="description" content="FieldIQ is an enterprise field-intelligence platform. FIQ is the participation and recognition layer of the FieldIQ ecosystem, built on Base Mainnet.">
+<meta property="og:title" content="FieldIQ — Enterprise Field Intelligence">
+<meta property="og:description" content="Improving participation, visibility, and accountability for professional field organisations.">
+<meta property="og:url" content="https://token.fieldiq.biz">
+<title>FieldIQ — Enterprise Field Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#070b16;--panel:#0d1426;--text:#f7f9ff;--muted:#aab5cc;--line:rgba(255,255,255,.10);--blue:#3b82f6}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#070b16,#0a1020);color:var(--text);line-height:1.6}
-.wrap{width:min(980px,calc(100% - 36px));margin:auto}
-header{display:flex;align-items:center;gap:12px;padding:22px 0;border-bottom:1px solid var(--line);font-weight:800}
-header img{width:42px;height:42px;border-radius:10px}
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:80px 0 56px}
-h1{font-size:clamp(3rem,8vw,5.2rem);line-height:1;margin:0 0 18px}
-.lead{font-size:1.15rem;color:var(--muted);max-width:680px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px}
-.card img{width:120px;height:120px;border-radius:24px}
-.details{margin-top:24px}
-.row{padding:14px 0;border-bottom:1px solid var(--line)}
-.row:last-child{border-bottom:none}
-.label{color:var(--muted);font-size:.92rem}
-.value{font-weight:800;word-break:break-all}
-.btn{display:inline-block;margin-top:24px;padding:13px 18px;border-radius:12px;background:var(--blue);color:white;text-decoration:none;font-weight:800}
-section{padding:44px 0}
-footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:.92rem}
-.note{color:var(--muted);font-size:.92rem}
-@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:54px}}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #07090f;
+  --surface:  #0d1120;
+  --rule:     #161d2e;
+  --rule-mid: #1e2a40;
+  --blue:     #2563ff;
+  --blue-low: rgba(37,99,255,0.08);
+  --blue-mid: rgba(37,99,255,0.18);
+  --text:     #eef2ff;
+  --mid:      #7a90b8;
+  --muted:    #3d5070;
+  --mono:     'DM Mono', monospace;
+  --sans:     'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(7,9,15,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.nav-mark {
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  border: 1px solid var(--rule-mid);
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+}
+
+.nav-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+/* LAYOUT */
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* HERO */
+#hero {
+  padding: 152px 0 104px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: blink 2.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50% { opacity:0.2; }
+}
+
+.hero-h1 {
+  font-size: clamp(36px, 5.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin-bottom: 28px;
+  max-width: 620px;
+}
+
+.hero-h1 em {
+  font-style: normal;
+  color: var(--blue);
+}
+
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--mid);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+.hero-rule {
+  height: 1px;
+  background: var(--rule);
+  margin-bottom: 40px;
+}
+
+.hero-facts {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.fact {}
+
+.fact-val {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.fact-lbl {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section:last-of-type { border-bottom: none; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--blue);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.section-h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.15;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.75;
+  max-width: 660px;
+}
+
+.body-text + .body-text { margin-top: 18px; }
+
+.body-text strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* CALLOUT BOX */
+.callout {
+  margin-top: 36px;
+  background: var(--surface);
+  border: 1px solid var(--rule-mid);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 6px 6px 0;
+  padding: 20px 24px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--mid);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+.callout strong { color: var(--text); font-weight: 500; }
+
+/* THREE QUESTIONS */
+.q-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.q-item {
+  display: flex;
+  gap: 24px;
+  padding: 28px 28px;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+
+.q-item:last-child { border-bottom: none; }
+
+.q-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue);
+  padding-top: 2px;
+  flex-shrink: 0;
+  letter-spacing: 0.06em;
+  min-width: 28px;
+}
+
+.q-body {}
+
+.q-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.q-text {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+/* TOKEN TABLE */
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.token-table tr { border-bottom: 1px solid var(--rule); }
+.token-table tr:last-child { border-bottom: none; }
+
+.token-table td {
+  padding: 15px 22px;
+  vertical-align: middle;
+}
+
+.token-table td:first-child {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  background: var(--surface);
+  width: 180px;
+  border-right: 1px solid var(--rule);
+}
+
+.token-table td:last-child {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* CONTRACT BLOCK */
+.contract-block {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.contract-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+}
+
+.contract-head-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.network-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue);
+}
+
+.network-badge::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.contract-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 22px;
+}
+
+.contract-addr {
+  font-family: var(--mono);
+  font-size: clamp(10px, 1.6vw, 13px);
+  color: var(--text);
+  letter-spacing: 0.03em;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--blue);
+  background: var(--blue-low);
+  border: 1px solid rgba(37,99,255,0.22);
+  border-radius: 5px;
+  padding: 7px 14px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover { background: var(--blue-mid); }
+
+.copy-btn.ok {
+  color: #10b981;
+  background: rgba(16,185,129,0.1);
+  border-color: rgba(16,185,129,0.25);
+}
+
+.contract-footer {
+  display: block;
+  padding: 13px 22px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.contract-footer:hover { color: var(--blue); }
+
+/* CONTACT */
+.contact-table {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--rule);
+  gap: 24px;
+}
+
+.contact-row:last-child { border-bottom: none; }
+
+.contact-key {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.contact-val {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.contact-val a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.contact-val a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 40px 0;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.footer-mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.disclaimer {
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.75;
+  opacity: 0.65;
+  max-width: 700px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .wrap { padding: 0 20px; }
+  #hero { padding: 120px 0 80px; }
+  .section { padding: 72px 0; }
+  .hero-facts { gap: 28px; }
+  .contract-body { flex-direction: column; align-items: flex-start; }
+  .footer-row { flex-direction: column; align-items: flex-start; }
+  .token-table td:first-child { width: 130px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow::before { animation: none; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header><img src="./FIQ_token_logo_256.png" alt="FIQ logo"> FIELDIQ</header>
 
-<main>
-<section class="hero">
-<div>
-<h1>FIQ</h1>
-<p class="lead">
-FIQ is the fixed-supply token associated with FieldIQ. It is intended to support future participation and reward programs connected to the FieldIQ ecosystem.
-</p>
-<a class="btn" href="https://basescan.org/token/0x86DFCecd6B966FC1B67Baa03058255db72546DeD" target="_blank" rel="noopener">View verified contract</a>
-</div>
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-mark">FIQ</div>
+    <span class="nav-name">FieldIQ</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#platform">Platform</a></li>
+    <li><a href="#fiq">FIQ Token</a></li>
+    <li><a href="#token-info">Contract</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<div class="card">
-<img src="./FIQ_token_logo_256.png" alt="FIQ token logo">
-<div class="details">
-<div class="row"><div class="label">Token name</div><div class="value">FieldIQ</div></div>
-<div class="row"><div class="label">Symbol</div><div class="value">FIQ</div></div>
-<div class="row"><div class="label">Network</div><div class="value">Base Mainnet</div></div>
-<div class="row"><div class="label">Total supply</div><div class="value">250,000,000 FIQ</div></div>
-</div>
-</div>
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Enterprise Field Intelligence</div>
+    <h1 class="hero-h1">Making field contribution<br><em>visible, measurable,</em><br>and recognised.</h1>
+    <p class="hero-sub">FieldIQ helps organisations improve participation, capture reliable field intelligence, and reduce administrative burden. FIQ is the participation and recognition layer of the FieldIQ ecosystem.</p>
+    <div class="hero-rule"></div>
+    <div class="hero-facts">
+      <div class="fact">
+        <div class="fact-val">Base Mainnet</div>
+        <div class="fact-lbl">Network</div>
+      </div>
+      <div class="fact">
+        <div class="fact-val">ERC-20</div>
+        <div class="fact-lbl">Standard</div>
+      </div>
+      <div class="fact">
+        <div class="fact-val">250,000,000</div>
+        <div class="fact-lbl">Fixed Supply</div>
+      </div>
+      <div class="fact">
+        <div class="fact-val">Verified</div>
+        <div class="fact-lbl">Contract</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Official contract</h2>
-<div class="card">
-<div class="label">Contract address</div>
-<div class="value">0x86DFCecd6B966FC1B67Baa03058255db72546DeD</div>
-<p class="note">Source code verified on BaseScan as an Exact Match.</p>
-</div>
+<!-- PLATFORM -->
+<section id="platform" class="section">
+  <div class="wrap">
+    <div class="eyebrow">The Platform</div>
+    <h2 class="section-h2">An enterprise field-intelligence platform built for professional organisations.</h2>
+    <p class="body-text">Field teams are the operational backbone of organisations in healthcare, pharmaceuticals, medical devices, and commercial distribution. Their activity — visits, evaluations, account development, commercial wins — drives revenue, shapes relationships, and generates market intelligence. But that activity is rarely captured consistently or reliably.</p>
+    <p class="body-text">FieldIQ solves this. It gives field professionals a structured way to log what they do, and gives managers <strong>real-time visibility into territory performance, participation, and execution</strong> — without replacing the systems organisations already use.</p>
+    <div class="callout">
+      <strong>FieldIQ is not a CRM.</strong> It is a field-intelligence platform designed to complement existing business systems by improving participation, visibility, and accountability — working alongside CRM and ERP infrastructure rather than replacing it.
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Operator</h2>
-<p class="lead">FieldIQ is developed and operated by Mid East Medical FZC.</p>
-<p class="note">Contact: rob@mideastmedical.com</p>
+<!-- FIQ -->
+<section id="fiq" class="section">
+  <div class="wrap">
+    <div class="eyebrow">Why FIQ Exists</div>
+    <h2 class="section-h2">Organisations depend on consistent field participation. Participation depends on recognition.</h2>
+    <p class="body-text">Field teams avoid logging systems not because they lack discipline, but because those systems are slow, disconnected, and offer no visible return for the effort. The result is incomplete data, unreliable reporting, and managers working with a fraction of the intelligence they need.</p>
+    <p class="body-text">FIQ is intended to address this directly. As the participation and recognition layer of the FieldIQ ecosystem, FIQ is designed to <strong>recognise verified, consistent contribution</strong> — making meaningful field activity visible and acknowledged within the platform.</p>
+    <p class="body-text">FIQ is a utility token intended for use within the FieldIQ ecosystem to support participation programmes and recognise contribution from verified field activity.</p>
+    <div class="q-list" style="margin-top:40px;">
+      <div class="q-item">
+        <div class="q-num">01</div>
+        <div class="q-body">
+          <div class="q-title">Recognise verified participation</div>
+          <div class="q-text">FIQ is intended to acknowledge field professionals whose activity is verified within the FieldIQ platform — creating a transparent record of contribution that benefits both the individual and the organisation.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">02</div>
+        <div class="q-body">
+          <div class="q-title">Reduce administrative resistance</div>
+          <div class="q-text">When contribution is acknowledged, participation improves. FieldIQ is designed to make logging fast and meaningful — and FIQ is intended to reinforce that the effort is seen and valued.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">03</div>
+        <div class="q-body">
+          <div class="q-title">Support long-term ecosystem alignment</div>
+          <div class="q-text">FIQ is designed for longevity. Fixed supply, no post-deployment minting, and a structured allocation model reflect a long-term view of ecosystem participation rather than short-term distribution.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-</main>
 
-<footer>© 2026 Mid East Medical FZC · FieldIQ</footer>
-</div>
+<!-- TOKEN INFO -->
+<section id="token-info" class="section">
+  <div class="wrap">
+    <div class="eyebrow">Token Information</div>
+    <h2 class="section-h2">Factual token record.</h2>
+    <p class="body-text" style="margin-bottom:32px;">The following information is provided for transparency. FIQ is a fixed-supply ERC-20 token deployed on Base Mainnet with verified source code. No additional tokens can be created after deployment.</p>
+
+    <table class="token-table">
+      <tr><td>Token Name</td><td>FieldIQ</td></tr>
+      <tr><td>Symbol</td><td>FIQ</td></tr>
+      <tr><td>Network</td><td>Base Mainnet</td></tr>
+      <tr><td>Standard</td><td>ERC-20</td></tr>
+      <tr><td>Total Supply</td><td>250,000,000 FIQ — fixed at deployment</td></tr>
+      <tr><td>Decimals</td><td>18</td></tr>
+      <tr><td>Post-deploy Mint</td><td>Not possible — supply is permanently fixed</td></tr>
+      <tr><td>License</td><td>MIT</td></tr>
+    </table>
+
+    <div class="contract-block">
+      <div class="contract-head">
+        <span class="contract-head-label">Contract Address</span>
+        <span class="network-badge">Base Mainnet</span>
+      </div>
+      <div class="contract-body">
+        <span class="contract-addr" id="addr">0x86DFCecd6B966FC1B67Baa03058255db72546DeD</span>
+        <button class="copy-btn" id="copyBtn" onclick="copyAddr()">Copy</button>
+      </div>
+      <a class="contract-footer" href="https://basescan.org/token/0x86DFCecd6B966FC1B67Baa03058255db72546DeD" target="_blank" rel="noopener">
+        View verified contract on BaseScan →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2 class="section-h2">Get in touch.</h2>
+    <p class="body-text" style="margin-bottom:32px;">For enquiries about FieldIQ platform deployment, partnership, or the FIQ ecosystem, contact us directly.</p>
+    <div class="contact-table">
+      <div class="contact-row">
+        <div class="contact-key">Contact</div>
+        <div class="contact-val">Rob Dehni</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-key">Organisation</div>
+        <div class="contact-val">Mid East Medical FZC</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-key">Email</div>
+        <div class="contact-val"><a href="mailto:rob@mideastmedical.com">rob@mideastmedical.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-key">Platform</div>
+        <div class="contact-val"><a href="https://fieldiq.biz" target="_blank" rel="noopener">fieldiq.biz</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-copy">
+        © 2026 Mid East Medical FZC. All rights reserved.<br>
+        FieldIQ and FIQ are trademarks of Mid East Medical FZC.
+      </div>
+      <div class="footer-mono">token.fieldiq.biz</div>
+    </div>
+    <div class="disclaimer">
+      This website is provided for informational purposes only. It describes the current objectives and functionality of the FieldIQ ecosystem. Future features and capabilities may evolve over time in accordance with applicable laws. Nothing on this page constitutes financial advice or a solicitation to purchase any financial instrument.
+    </div>
+  </div>
+</footer>
+
+<script>
+function copyAddr() {
+  var addr = document.getElementById('addr').textContent.trim();
+  var btn = document.getElementById('copyBtn');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(addr).then(function() { flash(btn); });
+  } else {
+    var t = document.createElement('textarea');
+    t.value = addr; t.style.position='fixed'; t.style.opacity='0';
+    document.body.appendChild(t); t.select();
+    document.execCommand('copy'); document.body.removeChild(t);
+    flash(btn);
+  }
+}
+function flash(btn) {
+  btn.textContent = 'Copied'; btn.classList.add('ok');
+  setTimeout(function(){ btn.textContent='Copy'; btn.classList.remove('ok'); }, 2000);
+}
+</script>
 </body>
 </html>
